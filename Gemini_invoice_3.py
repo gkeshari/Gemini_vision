@@ -65,7 +65,7 @@
 #         if upload is not None:
 #             st.session_state.captured_image = Image.open(upload)
 #             st.session_state.stage = 'process'
-#             st.experimental_rerun()
+#             st.rerun()
 
 #     elif st.session_state.stage == 'process':
 #         st.image(st.session_state.captured_image, caption='Image', use_column_width=True)
@@ -75,7 +75,7 @@
 #             if response:
 #                 st.session_state.gemini_response = response
 #                 st.session_state.stage = 'result'
-#             st.experimental_rerun()
+#             st.rerun()
 
 #     elif st.session_state.stage == 'result':
 #         st.image(st.session_state.captured_image, caption='Image', use_column_width=True)
@@ -83,7 +83,7 @@
 #         st.write(st.session_state.gemini_response)
 #         if st.button('Start Over', key='start_over_button'):
 #             reset_state()
-#             st.experimental_rerun()
+#             st.rerun()
 
 # if __name__ == "__main__":
 #     main()
@@ -157,7 +157,7 @@ def main():
         if upload is not None:
             st.session_state.captured_image = Image.open(upload)
             st.session_state.stage = 'process'
-            st.experimental_rerun()
+            st.rerun()
 
     elif st.session_state.stage == 'process':
         st.image(st.session_state.captured_image, caption='Image', use_column_width=True)
@@ -166,7 +166,7 @@ def main():
             response = show_response(st.session_state.captured_image, prompt)
             if response:
                 st.session_state.responses.append({"prompt": prompt, "response": response})
-            st.experimental_rerun()
+            st.rerun()
 
         # Display all responses
         if st.session_state.responses:
@@ -177,7 +177,7 @@ def main():
 
         if st.button('Start Over', key='start_over_button'):
             reset_state()
-            st.experimental_rerun()
+            st.rerun()
 
 if __name__ == "__main__":
     main()
